@@ -1,0 +1,4 @@
+{
+  "cmake.buildDirectory": "${workspaceFolder}/build/debug", // just so that when the CMakeTools extension auto rebuilds, it doesn't build in the root build directory. Our tasks.json already handles this so we don't need to do it automatically with CMakeTools, but CMakeTools is nice to have for other things
+  "C_Cpp.autoAddFileAssociations": false
+}
