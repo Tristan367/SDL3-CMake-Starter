@@ -6,7 +6,8 @@
       "type": "shell",
       "command": "cmake",
       "args": [
-        "-B", "build/debug",
+        "-B",
+        "build/debug",
         "-DCMAKE_BUILD_TYPE=Debug"
       ],
       "group": "build"
@@ -16,7 +17,8 @@
       "type": "shell",
       "command": "cmake",
       "args": [
-        "-B", "build/release",
+        "-B",
+        "build/release",
         "-DCMAKE_BUILD_TYPE=Release"
       ],
       "group": "build"
@@ -26,20 +28,30 @@
       "type": "shell",
       "command": "cmake",
       "args": [
-        "--build", "build/debug"
+        "--build",
+        "build/debug",
+        "--target",
+        "run"
       ],
       "group": "build",
-      "dependsOn": ["Build Debug"]
+      "dependsOn": [
+        "Build Debug"
+      ]
     },
     {
       "label": "Compile Release",
       "type": "shell",
       "command": "cmake",
       "args": [
-        "--build", "build/release"
+        "--build",
+        "build/release",
+        "--target",
+        "run"
       ],
       "group": "build",
-      "dependsOn": ["Build Release"]
+      "dependsOn": [
+        "Build Release"
+      ]
     }
   ]
 }

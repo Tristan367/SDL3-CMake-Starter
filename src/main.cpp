@@ -36,7 +36,7 @@ inline void renderTest() {
 
 inline void handleInput() {
   SDL_Event e;
-  if (SDL_PollEvent(&e))
+  while (SDL_PollEvent(&e))
     if (e.type == SDL_EVENT_QUIT)
       scene = EXIT;
 }
@@ -65,8 +65,9 @@ int main(int argc, char **argv) {
   texture = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_ABGR8888, SDL_TEXTUREACCESS_STREAMING, WINDOW_WIDTH, WINDOW_HEIGHT);
   pixelBuffer = new int[WINDOW_WIDTH * WINDOW_HEIGHT];
 
-  if (!pixelBuffer || !window || !renderer || !texture)
-    return -1;
+  std::cout << "SDL video driver: " << SDL_GetCurrentVideoDriver() << "\n";
+
+  if (!pixelBuffer || !window || !renderer || !texture) return -1;
 
   while (true) {
     switch (scene) {

@@ -41,7 +41,7 @@
     },
     // ───── Release Configurations ─────
     {
-      "name": "Release: Linux (gdb)",
+      "name": "Release: Linux",
       "type": "cppdbg",
       "request": "launch",
       "program": "${workspaceFolder}/build/release/app",
@@ -49,12 +49,10 @@
       "stopAtEntry": false,
       "cwd": "${workspaceFolder}/build/release",
       "externalConsole": true,
-      "MIMode": "gdb",
-      "miDebuggerPath": "/usr/bin/gdb",
       "preLaunchTask": "Compile Release"
     },
     {
-      "name": "Release: macOS (lldb)",
+      "name": "Release: macOS",
       "type": "cppdbg",
       "request": "launch",
       "program": "${workspaceFolder}/build/release/app",
@@ -62,12 +60,10 @@
       "stopAtEntry": false,
       "cwd": "${workspaceFolder}/build/release",
       "externalConsole": true,
-      "MIMode": "lldb",
-      "miDebuggerPath": "/usr/bin/lldb",
       "preLaunchTask": "Compile Release"
     },
     {
-      "name": "Release: Windows (MSVC)",
+      "name": "Release: Windows",
       "type": "cppvsdbg",
       "request": "launch",
       "program": "${workspaceFolder}\\build\\release\\app.exe",
