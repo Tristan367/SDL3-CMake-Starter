@@ -56,17 +56,3 @@ add_custom_command(TARGET app POST_BUILD
           "$<TARGET_FILE_DIR:app>/assets"
   COMMENT "Refreshing assets into output directory"
 )
-
-# Wayland-aware run target
-set(RUN_COMMAND $<TARGET_FILE:app>)
-
-if(DEFINED ENV{XDG_SESSION_TYPE} AND "$ENV{XDG_SESSION_TYPE}" STREQUAL "wayland")
-  message(STATUS "Wayland session detected — SDL_VIDEODRIVER=wayland will be set at runtime")
-  set(RUN_COMMAND SDL_VIDEODRIVER=wayland ${RUN_COMMAND})
-endif()
-
-add_custom_target(run
-  COMMAND ${RUN_COMMAND}
-  WORKING_DIRECTORY $<TARGET_FILE_DIR:app>
-  COMMENT "Running app with environment-aware configuration"
-)

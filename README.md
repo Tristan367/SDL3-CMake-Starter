@@ -1,59 +1,58 @@
 ## 🛠 Getting Started
 
-### 1. **Install a C++ compiler**
+### 1. **Install a C++ Compiler**
 
-This project supports **Linux**, **Windows**, and **macOS**.
-
-- **Linux**: Install `g++` or `clang` using your system’s package manager.
+- **Linux**: Use `g++` or `clang` via your package manager:
   - Arch: `sudo pacman -S gcc`
   - Debian/Ubuntu: `sudo apt install build-essential`
-- **Windows**: Use [MSVC](https://visualstudio.microsoft.com/visual-cpp-build-tools/), or install [MinGW-w64](http://mingw-w64.org/) for GCC.
-- **macOS**: Comes with Clang via Xcode. Or use [Homebrew](https://brew.sh/) and run `brew install gcc` if you prefer GNU g++.
+- **Windows**:
+  - Install [MSVC](https://visualstudio.microsoft.com/visual-cpp-build-tools/), or use [MinGW-w64](http://mingw-w64.org/)
+- **macOS**:
+  - Comes with Clang via Xcode
+  - Or install via Homebrew: `brew install gcc`
 
-### 2. **Install a debugger (optional, for debug mode)**
+---
 
-If you plan to run the app in **debug mode** from VS Code, you’ll need a debugger installed:
+### 2. **Install CMake**
 
-- **Linux**: Install GDB  
-  - Arch: `sudo pacman -S gdb`  
-  - Debian/Ubuntu: `sudo apt install gdb`
-- **Windows**: No action needed — the MSVC debugger is included with Visual Studio.
-- **macOS**: LLDB is included with Xcode. You can also install GDB via Homebrew: `brew install gdb`  
-  > ⚠️ GDB on macOS requires code signing. LLDB is recommended.
+Download from [cmake.org](https://cmake.org/download/) or use your package manager:
 
-> 📝 If you're only running the app in **release mode**, a debugger is not required.
+- Linux: `sudo pacman -S cmake` or `sudo apt install cmake`
+- Windows: Use the official installer or `choco install cmake`
+- macOS: `brew install cmake`
 
-### 3. **Install CMake**
+Ensure `cmake` is available in your terminal `PATH`.
 
-Download it from the official site: [cmake.org](https://cmake.org/download/)
+---
 
-Or install it via your package manager:
+### 3. **Build and Run**
 
-- **Linux**: `sudo pacman -S cmake`, `sudo apt install cmake`, etc.
-- **Windows**: Use the official installer, or `choco install cmake` if you use Chocolatey
-- **macOS**: `brew install cmake`
+This project uses a cross-platform **Makefile** for building and debugging.
 
-Make sure `cmake` is available in your system’s `PATH`.
+#### 🔧 Release (default)
 
-### 4. **Set up your development environment**
+```bash
+make
+```
 
-- Download and install [Visual Studio Code](https://code.visualstudio.com/)
-- Install the following extensions:
-  - **C/C++** (`ms-vscode.cpptools`)
-  - **CMake Tools** (`ms-vscode.cmake-tools`)
+#### 🐛 Debug
 
-### 5. **Build and run the project**
+```bash
+make debug
+```
 
-- Open the project folder in VS Code
-- Open the **Run and Debug** sidebar
-- Select a launch configuration for your platform and build type (e.g. `Debug: Linux (gdb)`)
-- Press `F5` or click **Run** to build and launch the app
+## 📝 TODO
+
+- [ ] Implement cross-platform application icons for Windows, macOS, and Linux
 
 ---
 
 ### ✅ Notes
 
-- Uses **CMake** to handle cross-platform builds and automate configuration
-- VS Code tasks and launch configs are preconfigured — no manual setup required
-- Works out of the box on **Linux**, **Windows**, and **macOS**
-- Automatically adapts to Wayland environments on Linux when needed
+- `app` is built into `build/release/` or `build/debug/` depending on mode.
+- Debug mode uses:
+  - `gdb` on Linux
+  - `lldb` on macOS
+  - `cdb` or `windbg` on Windows (configurable via the Makefile)
+- Assets are automatically copied into the build directory after each build.
+- SDL3, GLM, and stb are pulled via CMake — no need to install manually.
