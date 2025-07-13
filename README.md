@@ -53,7 +53,7 @@ make debug
 - Assets are automatically copied into the build directory after each build
 - SDL3, GLM, and stb are pulled via CMake — no need to install manually
 - To rename the project, update `project(app LANGUAGES CXX)` in `CMakeLists.txt` and `PROJECT_NAME = app` in the Makefile
-- The folder build/release/<project-name>/ contains the shippable build — ready for distribution or packaging
+- The folder build/release/\<project-name\>/ contains the shippable build — ready for distribution or packaging
 
 ---
 
